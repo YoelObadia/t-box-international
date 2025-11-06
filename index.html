@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="tbox, Tbox, T-Box, t-box, TBox, tbox international, Tbox international, T-Box International, T-box international, solutions alimentaires, repas longue conservation">
+    <meta property="og:image" content="images/logo.jpg">
+    <title>T-Box International</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Positionnement des drapeaux */
+        .language-switch {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
+        .language-switch button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        /* Styles basiques */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Sections */
+        section {
+            margin: 20px;
+        }
+
+        /* Autres styles, à ajuster selon tes besoins */
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/logo.jpg" alt="T-Box Logo" style="width: 150px;">
+        <nav>
+            <ul data-lang="fr">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#technology">Technologie</a></li>
+                <li><a href="#markets">Marchés</a></li>
+                <li><a href="#sustainability">Durabilité</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <ul data-lang="en" style="display:none;">
+                <li><a href="#about">About</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#markets">Markets</a></li>
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <ul data-lang="es" style="display:none;">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#technology">Tecnología</a></li>
+                <li><a href="#markets">Mercados</a></li>
+                <li><a href="#sustainability">Sostenibilidad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            
+            <ul data-lang="ar" style="display:none; direction: rtl;">
+                <li><a href="#about">حول</a></li>
+                <li><a href="#technology">التكنولوجيا</a></li>
+                <li><a href="#markets">الأسواق</a></li>
+                <li><a href="#sustainability">الاستدامة</a></li>
+                <li><a href="#contact">الاتصال</a></li>
+            </ul>
+            
+        </nav>
+
+    <!-- Drapeaux pour changer de langue -->
+    <div class="language-switch">
+        <button onclick="changeLanguage('fr')">
+            <span class="flag-icon flag-icon-fr"></span> <!-- Drapeau de la France -->
+        </button>
+        <button onclick="changeLanguage('en')">
+            <span class="flag-icon flag-icon-us"></span> <!-- Drapeau des États-Unis -->
+        </button>
+        <button onclick="changeLanguage('es')">
+            <span class="flag-icon flag-icon-es"></span> <!-- Drapeau de l'Espagne -->
+        </button>
+        <button onclick="changeLanguage('ar')">
+            <span class="flag-icon flag-icon-sa"></span> <!-- Drapeau de l'Arabie Saoudite -->
+        </button>
+    </div>
+
+
+    </header>
+
+    <!-- Section Hero avec vidéo alignée à droite -->
+    <section id="hero">
+        <div class="text-video-container">
+            <div class="text-content">
+                <h2 data-lang="fr">T-Box : Activer ,patienter ,déguster , votre repas chaud en 4 minutes!</h2>
+                <h2 data-lang="en" style="display:none;">T-Box: Activate, wait, enjoy, your hot meal in 4 minutes!</h2>
+                <h2 data-lang="es" style="display:none;">T-Box: Activa, espera, disfruta, tu comida caliente en 4 minutos!</h2>
+                <h2 data-lang="ar" style="display:none; direction: rtl;">T-Box: شغّل، انتظر، استمتع، وجبتك الساخنة في 4 دقائق!</h2>
+
+                <p data-lang="fr">T-Box révolutionne l'alimentation avec des repas de qualité longue conservation, activables sans réfrigération ni électricité. Une solution idéale pour une alimentation pratique, n'importe où, n'importe quand.</p>
+                <p data-lang="en" style="display:none;">T-Box revolutionizes food with long-lasting quality meals, activated without refrigeration or electricity. An ideal solution for practical meals, anywhere, anytime.</p>
+                <p data-lang="es" style="display:none;">T-Box revoluciona la alimentación con comidas de calidad de larga duración, activadas sin refrigeración ni electricidad. ¡Una solución ideal para comidas prácticas, en cualquier lugar y en cualquier momento!</p>
+                <p data-lang="ar" style="display:none; direction: rtl;">T-Box تُحدث ثورة في الطعام مع وجبات ذات جودة تدوم طويلاً، تُفعل بدون تبريد أو كهرباء. الحل المثالي لوجبات عملية، في أي مكان وفي أي وقت!</p>
+            </div>
+            <video src="images/demo.mp4" controls></video>
+        </div>
+    </section>
+
+    <!-- À Propos -->
+    <section id="about">
+        <div class="text-video-container">
+            <div class="text-content">
+                <h2 data-lang="fr">À Propos de T-Box</h2>
+                <h2 data-lang="en" style="display:none;">About T-Box</h2>
+                <h2 data-lang="es" style="display:none;">Sobre T-Box</h2>
+                <h2 data-lang="ar" style="display:none; direction: rtl;">عن T-Box</h2>
+
+                <p data-lang="fr">T-Box est une entreprise pionnière qui offre des repas pratiques et accessibles pour tous types de besoins, partout dans le monde. Nous nous engageons à fournir des repas de qualité, prêts à être consommés, avec une conservation prolongée sans dépendre d'équipements réfrigérants. Notre mission est de rendre les repas chauds disponibles pour tous, quels que soient les contextes et les environnements.</p>
+                <p data-lang="en" style="display:none;">T-Box is a pioneering company offering practical and accessible meals for all types of needs, anywhere in the world. We are committed to providing quality meals, ready to eat, with extended preservation without relying on refrigeration equipment. Our mission is to make hot meals available to everyone, in any context and environment.</p>
+                <p data-lang="es" style="display:none;">T-Box es una empresa pionera que ofrece comidas cómodas y accesibles para todo tipo de necesidades, en cualquier parte del mundo. Estamos comprometidos a brindar comidas de calidad, listas para comer, con almacenamiento prolongado sin depender de equipos de refrigeración. Nuestra misión es hacer que las comidas calientes estén disponibles para todos, independientemente de los contextos y entornos.</p>
+                <p data-lang="ar" style="display:none; direction: rtl;">T-Box هي شركة رائدة تقدم وجبات عملية وسهلة الوصول لتلبية جميع الاحتياجات، في أي مكان في العالم. نحن ملتزمون بتقديم وجبات عالية الجودة، جاهزة للأكل، مع فترة حفظ طويلة دون الحاجة إلى معدات تبريد. مهمتنا هي جعل الوجبات الساخنة متاحة للجميع، بغض النظر عن السياقات والبيئات.</p>
+            </div>
+            <img src="images/about-us.jpg" alt="Présentation de T-Box">
+        </div>
+    </section>
+
+    <!-- Section Technologie -->
+    <section id="technology">
+        <div class="text-video-container">
+            <div class="text-content">
+                <h2 data-lang="fr">Technologie Innovante</h2>
+                <h2 data-lang="en" style="display:none;">Innovative Technology</h2>
+                <h2 data-lang="es" style="display:none;">Tecnología Innovadora</h2>
+                <h2 data-lang="ar" style="display:none; direction: rtl;">تقنية مبتكرة</h2>
+                
+                <p data-lang="fr">La technologie de réchauffement automatique brevetée de T-Box permet de chauffer les repas en seulement 2 à 5 minutes grâce à une réaction exothermique naturelle, sans danger et sans besoin d'électricité. Chaque repas est maintenu chaud pendant 30 minutes, offrant ainsi une flexibilité unique dans les environnements où les ressources sont limitées.</p>
+                <p data-lang="en" style="display:none;">T-Box's patented auto-warming technology allows meals to be heated in just 2 to 5 minutes through a natural exothermic reaction, safe and without electricity. Each meal stays hot for 30 minutes, offering unique flexibility in resource-limited environments.</p>
+                <p data-lang="es" style="display:none;">La tecnología de calentamiento automático patentada de T-Box calienta las comidas en solo 2 a 5 minutos mediante una reacción exotérmica natural y segura sin necesidad de electricidad. Cada comida se mantiene caliente durante 30 minutos, lo que proporciona una flexibilidad única en entornos con recursos limitados.</p>
+                <p data-lang="ar" style="display:none; direction: rtl;">تتيح تقنية التسخين التلقائي الحاصلة على براءة اختراع من T-Box تسخين الوجبات في 2 إلى 5 دقائق فقط من خلال تفاعل طارد للحرارة طبيعي وآمن بدون الحاجة إلى الكهرباء. تظل كل وجبة ساخنة لمدة 30 دقيقة، مما يوفر مرونة فريدة في البيئات ذات الموارد المحدودة.</p>
+                
+                <ul data-lang="fr">
+                    <li>Conservation des repas jusqu'à 2 ans</li>
+                    <li>Réaction exothermique naturelle et sécurisée</li>
+                    <li>Matériaux sûrs et recyclables</li>
+                </ul>
+                
+                <ul data-lang="en" style="display:none;">
+                    <li>Meal preservation for up to 2 years</li>
+                    <li>Safe and natural exothermic reaction</li>
+                    <li>Safe and recyclable materials</li>
+                </ul>
+                
+                <ul data-lang="es" style="display:none;">
+                    <li>Conservación de las comidas hasta por 2 años</li>
+                    <li>Reacción exotérmica natural y segura</li>
+                    <li>Materiales seguros y reciclables</li>
+                </ul>
+                
+                <ul data-lang="ar" style="display:none; text-align: right; direction: rtl;">
+                    <li>الحفاظ على الوجبات لمدة تصل إلى سنتين</li>
+                    <li>تفاعل طارد للحرارة طبيعي وآمن</li>
+                    <li>مواد آمنة وقابلة لإعادة التدوير</li>
+                </ul>
+                
+            </div>
+            <img src="images/technology.jpg" alt="Technologie T-Box">
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://tbox-chef.com/wp-content/uploads/2020/04/STEP-1-NOIR.png" alt="Étape 1">
+                <div class="gallery-text" data-lang="fr">Appuyez sur le bouton sur le côté de la boîte pour commencer.</div>
+                <div class="gallery-text" data-lang="en" style="display:none;">Press down the button on the side of the box to start.</div>
+                <div class="gallery-text" data-lang="es" style="display:none;">Presiona el botón en el lado de la caja para comenzar.</div>
+                <div class="gallery-text" data-lang="ar" style="display:none; direction: rtl;">اضغط على الزر في جانب العلبة لبدء التشغيل.</div>
+            </div>
+        
+            <div class="gallery-item">
+                <img src="https://tbox-chef.com/wp-content/uploads/2020/04/STEP-2-NOIR.png" alt="Étape 2">
+                <div class="gallery-text" data-lang="fr">Laissez chauffer pendant 2 minutes.</div>
+                <div class="gallery-text" data-lang="en" style="display:none;">Allow food to heat for 2 minutes.</div>
+                <div class="gallery-text" data-lang="es" style="display:none;">Deja que la comida se caliente durante 2 minutos.</div>
+                <div class="gallery-text" data-lang="ar" style="display:none; direction: rtl;">اترك الطعام يسخن لمدة دقيقتين.</div>
+            </div>
+        
+            <div class="gallery-item">
+                <img src="https://tbox-chef.com/wp-content/uploads/2020/04/STEP-3-NOIR.png" alt="Étape 3">
+                <div class="gallery-text" data-lang="fr">Ouvrez la boîte et remuez avant de manger. Bon appétit.</div>
+                <div class="gallery-text" data-lang="en" style="display:none;">Open the box and stir before eating. Enjoy your meal.</div>
+                <div class="gallery-text" data-lang="es" style="display:none;">Abre la caja y remueve antes de comer. Buen provecho.</div>
+                <div class="gallery-text" data-lang="ar" style="display:none; direction: rtl;">افتح العلبة وحرك الطعام قبل الأكل. استمتع بوجبتك.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Marchés -->
+    <section id="markets" class="markets-layout">
+        <div class="text-content full-width-text">
+            <h2 data-lang="fr">Nos Marchés</h2>
+            <h2 data-lang="en" style="display:none;">Our Markets</h2>
+            <h2 data-lang="es" style="display:none;">Nuestros Mercados</h2>
+            <h2 data-lang="ar" style="display:none; direction: rtl;">أسواقنا</h2>
+            
+            <p data-lang="fr">T-Box s'adresse à plusieurs secteurs nécessitant des repas prêts à consommer, pratiques et faciles à stocker. Nos solutions couvrent divers domaines comme le tourisme, la santé, les agences humanitaires, et bien d'autres.</p>
+            <p data-lang="en" style="display:none;">T-Box serves several sectors requiring ready-to-eat, practical, and easy-to-store meals. Our solutions cover various fields such as tourism, health, humanitarian agencies, and more.</p>
+            <p data-lang="es" style="display:none;">T-Box se dirige a varios sectores que requieren platos preparados que sean prácticos y fáciles de almacenar. Nuestras soluciones cubren diversas áreas como turismo, atención médica, agencias humanitarias y muchas otras.</p>
+            <p data-lang="ar" style="display:none; direction: rtl;">تتوجه T-Box إلى عدة قطاعات تتطلب وجبات جاهزة للأكل، عملية وسهلة التخزين. تغطي حلولنا مجالات متنوعة مثل السياحة، الرعاية الصحية، الوكالات الإنسانية، وغيرها الكثير.</p>
+            
+            <ul data-lang="fr">
+                <li><strong>Tourisme et Hôtellerie :</strong> Des repas chauds et rapides pour les voyageurs et les hôtels</li>
+                <li><strong>Aéroports et Compagnies Aériennes :</strong> Une solution idéale pour les repas à bord</li>
+                <li><strong>Militaire et Logistique :</strong> Des repas durables dans des conditions extrêmes</li>
+                <li><strong>Agences Humanitaires :</strong> Des repas chauds pour les situations d'urgence</li>
+                <li><strong>Hôpitaux et Maisons de Retraite :</strong> Des repas pratiques pour les patients et les résidents</li>
+                <li><strong>Supermarchés et distributeurs automatiques :</strong> Des repas accessibles et chauds dans les lieux publics</li>
+                <li><strong>Industrie du Transport :</strong> Des repas pour les trains, bus et autres transports en commun</li>
+                <li><strong>Camping et Loisirs en Plein Air :</strong> Des repas simples et rapides pour les campeurs</li>
+                <li><strong>Événements Sportifs :</strong> Une solution pratique pour les spectateurs et participants</li>
+                <li><strong>Crises Humanitaires :</strong> Nourrir rapidement les victimes de catastrophes naturelles</li>
+                <li><strong>Éducation :</strong> Des repas équilibrés pour les cantines scolaires et universitaires</li>
+                <li><strong>Entreprises :</strong> Des repas faciles à stocker pour les employés en entreprise</li>
+            </ul>
+
+            <ul data-lang="en" style="display:none;">
+                <li><strong>Tourism and Hospitality:</strong> Hot and quick meals for travelers and hotels</li>
+                <li><strong>Airports and Airlines:</strong> An ideal solution for in-flight meals</li>
+                <li><strong>Military and Logistics:</strong> Durable meals in extreme conditions</li>
+                <li><strong>Humanitarian Agencies:</strong> Hot meals for emergency situations</li>
+                <li><strong>Hospitals and Retirement Homes:</strong> Practical meals for patients and residents</li>
+                <li><strong>Supermarkets and Vending Machines:</strong> Accessible and hot meals in public places</li>
+                <li><strong>Transport Industry:</strong> Meals for trains, buses, and other public transportation</li>
+                <li><strong>Camping and Outdoor Recreation:</strong> Simple and quick meals for campers</li>
+                <li><strong>Sporting Events:</strong> A practical solution for spectators and participants</li>
+                <li><strong>Humanitarian Crises:</strong> Quickly feeding victims of natural disasters</li>
+                <li><strong>Education:</strong> Balanced meals for school and university cafeterias</li>
+                <li><strong>Businesses:</strong> Easy-to-store meals for employees in the workplace</li>
+            </ul>
+            
+            <ul data-lang="es" style="display:none;">
+                <li><strong>Turismo y Hotelería:</strong> Comidas calientes y rápidas para viajeros y hoteles</li>
+                <li><strong>Aeropuertos y Compañías Aéreas:</strong> Una solución ideal para las comidas a bordo</li>
+                <li><strong>Militar y Logística:</strong> Comidas duraderas en condiciones extremas</li>
+                <li><strong>Agencias Humanitarias:</strong> Comidas calientes para situaciones de emergencia</li>
+                <li><strong>Hospitales y Hogares de Ancianos:</strong> Comidas prácticas para pacientes y residentes</li>
+                <li><strong>Supermercados y máquinas expendedoras:</strong> Comidas accesibles y calientes en lugares públicos</li>
+                <li><strong>Industria del Transporte:</strong> Comidas para trenes, autobuses y otros medios de transporte público</li>
+                <li><strong>Campamentos y Actividades al Aire Libre:</strong> Comidas simples y rápidas para campistas</li>
+                <li><strong>Eventos Deportivos:</strong> Una solución práctica para espectadores y participantes</li>
+                <li><strong>Crisis Humanitarias:</strong> Alimentar rápidamente a las víctimas de desastres naturales</li>
+                <li><strong>Educación:</strong> Comidas equilibradas para comedores escolares y universitarios</li>
+                <li><strong>Empresas:</strong> Comidas fáciles de almacenar para los empleados en las empresas</li>
+            </ul>
+            
+            <ul data-lang="ar" style="display:none; text-align: right; direction: rtl;">
+                <li><strong>السياحة والفنادق:</strong> وجبات ساخنة وسريعة للمسافرين والفنادق</li>
+                <li><strong>المطارات وشركات الطيران:</strong> حل مثالي للوجبات على متن الطائرة</li>
+                <li><strong>العسكرية واللوجستية:</strong> وجبات تدوم في الظروف القاسية</li>
+                <li><strong>الوكالات الإنسانية:</strong> وجبات ساخنة لحالات الطوارئ</li>
+                <li><strong>المستشفيات ودور الرعاية:</strong> وجبات عملية للمرضى والمقيمين</li>
+                <li><strong>محلات السوبر ماركت وآلات البيع:</strong> وجبات سهلة الوصول وساخنة في الأماكن العامة</li>
+                <li><strong>صناعة النقل:</strong> وجبات للقطارات والحافلات ووسائل النقل العامة الأخرى</li>
+                <li><strong>التخييم والترفيه في الهواء الطلق:</strong> وجبات بسيطة وسريعة للمخيمين</li>
+                <li><strong>الأحداث الرياضية:</strong> حل عملي للمشاهدين والمشاركين</li>
+                <li><strong>الأزمات الإنسانية:</strong> تغذية سريعة لضحايا الكوارث الطبيعية</li>
+                <li><strong>التعليم:</strong> وجبات متوازنة للمقاصف المدرسية والجامعية</li>
+                <li><strong>الشركات:</strong> وجبات سهلة التخزين للموظفين في مكان العمل</li>
+            </ul>
+
+
+
+        </div>
+        <video src="images/market.mp4" controls></video>
+    </section>
+
+    <!-- Section Durabilité -->
+    <section id="sustainability">
+        <div class="text-video-container">
+            <div class="text-content">
+                <h2 data-lang="fr">Engagement Écologique</h2>
+                <h2 data-lang="en" style="display:none;">Ecological Commitment</h2>
+                <h2 data-lang="es" style="display:none;">Compromiso Ecológico</h2>
+                <h2 data-lang="ar" style="display:none; direction: rtl;">الالتزام البيئي</h2>
+
+                <p data-lang="fr">T-Box est déterminé à réduire son impact environnemental en utilisant des matériaux recyclables et en mettant en place des processus de production respectueux de l'environnement. Nous croyons qu'il est possible d'offrir des repas de qualité tout en préservant les ressources de notre planète.</p>
+                <p data-lang="en" style="display:none;">T-Box is committed to reducing its environmental impact by using recyclable materials and implementing environmentally friendly production processes. We believe it is possible to offer quality meals while preserving our planet's resources.</p>
+                <p data-lang="es" style="display:none;">T-Box está comprometido a reducir su impacto ambiental utilizando materiales reciclables y estableciendo procesos de producción respetuosos con el medio ambiente. Creemos que es posible ofrecer comidas de calidad mientras preservamos los recursos de nuestro planeta.</p>
+                <p data-lang="ar" style="display:none; direction: rtl;">تلتزم T-Box بتقليل تأثيرها البيئي من خلال استخدام مواد قابلة لإعادة التدوير وتطبيق عمليات إنتاج تحترم البيئة. نحن نؤمن بأنه من الممكن تقديم وجبات ذات جودة عالية مع الحفاظ على موارد كوكبنا.</p>
+            </div>
+            <img src="images/sustainability.jpg" alt="Engagement Écologique de T-Box">
+        </div>
+    </section>
+
+<!-- Section Co-Founders -->
+<section id="co-founders">
+    <div class="text-video-container">
+        <div class="text-content">
+                <div class="cofounder-profile">
+                <h3 data-lang="fr">Fondateur : Michel Cohen</h3>
+                <h3 data-lang="en" style="display:none;">Founder: Michel Cohen</h3>
+                <h3 data-lang="es" style="display:none;">Fundador: Michel Cohen</h3>
+                <h3 data-lang="ar" style="display:none; direction: rtl;">المؤسس: ميشيل كوهين</h3>
+                <img src="images/michel-cohen.jpg" alt="Michel Cohen" class="cofounder-img">
+
+                <div data-lang="fr">
+                    <p>Michel Cohen possède une vaste expérience dans l'acquisition, la mise en œuvre, le développement, la gestion, la coordination et la gestion de chaînes de magasins dans le secteur du textile féminin (200 magasins et plus).</p>
+                    <ul>
+                        <li>20 ans d'expérience dans la fabrication de textiles, la mise en place de chaînes de production en Chine, au Maroc, en France, en Thaïlande, en Inde et en Malaisie. Création, sourcing, marques propres et co-branding avec des marques telles que ZARA, H & M, PROMOD, CAMAIEU, CELIO, MARKS & SPENCER et CARREFOUR.</li>
+                        <li>10 ans d'expérience dans les énergies renouvelables (photovoltaïque, éoliennes, turbines hydrauliques), avec des installations dans le monde entier de centrales électriques en mégawatts (SKY POWER).</li>
+                        <li>Constructeur, entrepreneur, promotions immobilières et ventes dans des bâtiments privés et de bureaux à travers Israël.</li>
+                        <li>Expérience en logistique, stockage, transport de produits frais et surgelés, et répartition. A travaillé avec les hypermarchés Carrefour et sur les marchés alimentaires.</li>
+                        <li>Actif depuis 7 ans dans l'industrie alimentaire israélienne. Fondateur et développeur de la technologie TBOX, préparant une introduction en bourse (IPO).</li>
+                    </ul>
+                </div>
+                <div data-lang="en" style="display:none;">
+                    <p>Michel Cohen has extensive experience in acquisition, implementation, development, management, coordination, and management of chain stores in women's textiles (200 stores +).</p>
+                    <ul>
+                        <li>20 years experience in the manufacture of textiles, establishment of production chains in China, Morocco, France, Thailand, India, and Malaysia. Creation, sourcing, private labels, and co-branding with brands like ZARA, H & M, PROMOD, CAMAIEU, CELIO, MARKS & SPENCER, and CARREFOUR.</li>
+                        <li>10 years of experience in renewable energy (Photovoltaics, Wind Turbines, Hydraulic Turbines), with installations around the world of power plants in Megawatts (SKY POWER).</li>
+                        <li>Builder, entrepreneur, real estate promotions, and sales in private and office buildings across Israel.</li>
+                        <li>Experienced in logistics, storage, transport of fresh and frozen products, and dispatching. Worked with Carrefour superstores and in food markets.</li>
+                        <li>Has been active for 7 years in the Israeli food industry. Founder and developer of TBOX technology, preparing for IPO initial public offering.</li>
+                    </ul>
+                </div>
+                
+                <div data-lang="es" style="display:none;">
+                    <p>Michel Cohen tiene una vasta experiencia en la adquisición, implementación, desarrollo, gestión, coordinación y dirección de cadenas de tiendas en el sector de textiles femeninos (más de 200 tiendas).</p>
+                    <ul>
+                        <li>20 años de experiencia en la fabricación de textiles, la creación de cadenas de producción en China, Marruecos, Francia, Tailandia, India y Malasia. Creación, abastecimiento, marcas propias y co-branding con marcas como ZARA, H & M, PROMOD, CAMAIEU, CELIO, MARKS & SPENCER y CARREFOUR.</li>
+                        <li>10 años de experiencia en energías renovables (fotovoltaica, eólica, turbinas hidráulicas), con instalaciones en todo el mundo de centrales eléctricas en megavatios (SKY POWER).</li>
+                        <li>Constructor, emprendedor, promotor inmobiliario y ventas en edificios privados y oficinas en todo Israel.</li>
+                        <li>Experiencia en logística, almacenamiento, transporte de productos frescos y congelados, y distribución. Ha trabajado con los hipermercados Carrefour y en los mercados de alimentos.</li>
+                        <li>Activo durante 7 años en la industria alimentaria israelí. Fundador y desarrollador de la tecnología TBOX, preparando una oferta pública inicial (IPO).</li>
+                    </ul>
+                </div>
+                
+                <div data-lang="ar" style="display:none; text-align: right; direction: rtl;">
+                    <p>يمتلك ميشيل خبرة واسعة في الاستحواذ، التنفيذ، التطوير، الإدارة، التنسيق وإدارة سلاسل المتاجر في قطاع الملابس النسائية (أكثر من 200 متجر).</p>
+                    <ul>
+                        <li>20 عامًا من الخبرة في تصنيع المنسوجات، وإنشاء سلاسل الإنتاج في الصين، المغرب، فرنسا، تايلاند، الهند وماليزيا. إنشاء وتوريد العلامات التجارية الخاصة والعلامات التجارية المشتركة مع علامات تجارية مثل ZARA، H&M، PROMOD، CAMAIEU، CELIO، MARKS & SPENCER وCARREFOUR.</li>
+                        <li>10 سنوات من الخبرة في الطاقات المتجددة (الطاقة الشمسية، توربينات الرياح، التوربينات الهيدروليكية)، مع تركيب محطات كهرباء في جميع أنحاء العالم (SKY POWER).</li>
+                        <li>مقاول بناء، ومطور عقاري، وتطوير وبيع المباني الخاصة ومكاتب الأعمال في جميع أنحاء إسرائيل.</li>
+                        <li>خبرة في اللوجستيات، التخزين، نقل المنتجات الطازجة والمجمدة، والتوزيع. عمل مع الهايبرماركت Carrefour وفي الأسواق الغذائية.</li>
+                        <li>ناشط منذ 7 سنوات في صناعة الأغذية الإسرائيلية. مؤسس ومطور تكنولوجيا TBOX، ويستعد لطرح أولي في السوق (IPO).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h2 data-lang="fr">Contact</h2>
+        <h2 data-lang="en" style="display:none;">Contact</h2>
+        <h2 data-lang="es" style="display:none;">Contacto</h2>
+        <h2 data-lang="ar" style="display:none; direction: rtl;">اتصل بنا</h2>
+
+        <p data-lang="fr">Pour plus d'informations sur T-Box, contactez-nous.</p>
+        <p data-lang="en" style="display:none;">For more information about T-Box, contact us.</p>
+        <p data-lang="es" style="display:none;">Para más información sobre T-Box, contáctanos.</p>
+        <p data-lang="ar" style="display:none; direction: rtl;">لمزيد من المعلومات حول T-Box، اتصل بنا.</p>
+        
+        <form action="process_form.php" method="POST">
+            <div>
+                <label for="fname" data-lang="fr">Prénom:</label>
+                <label for="fname" data-lang="en" style="display:none;">First Name:</label>
+                <label for="fname" data-lang="es" style="display:none;">Nombre:</label>
+                <label for="fname" data-lang="ar" style="display:none; direction: rtl;">الاسم الأول:</label>
+                <input type="text" id="fname" name="firstname" required>
+            </div>
+            <div>
+                <label for="lname" data-lang="fr">Nom:</label>
+                <label for="lname" data-lang="en" style="display:none;">Last Name:</label>
+                <label for="lname" data-lang="es" style="display:none;">Apellido:</label>
+                <label for="lname" data-lang="ar" style="display:none; direction: rtl;">اللقب:</label>
+                <input type="text" id="lname" name="lastname" required>
+            </div>
+            <div>
+                <label for="email" data-lang="fr">Email:</label>
+                <label for="email" data-lang="en" style="display:none;">Email:</label>
+                <label for="email" data-lang="es" style="display:none;">Correo Electrónico:</label>
+                <label for="email" data-lang="ar" style="display:none; direction: rtl;">البريد الإلكتروني:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="tel" data-lang="fr">Téléphone:</label>
+                <label for="tel" data-lang="en" style="display:none;">Phone:</label>
+                <label for="tel" data-lang="es" style="display:none;">Teléfono:</label>
+                <label for="tel" data-lang="ar" style="display:none; direction: rtl;">الهاتف:</label>
+                <input type="tel" id="tel" name="telephone" required>
+            </div>
+            <div>
+                <label for="address" data-lang="fr">Adresse:</label>
+                <label for="address" data-lang="en" style="display:none;">Address:</label>
+                <label for="address" data-lang="es" style="display:none;">Dirección:</label>
+                <label for="address" data-lang="ar" style="display:none; direction: rtl;">العنوان:</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div>
+                <label for="subject" data-lang="fr">Sujet:</label>
+                <label for="subject" data-lang="en" style="display:none;">Subject:</label>
+                <label for="subject" data-lang="es" style="display:none;">Asunto:</label>
+                <label for="subject" data-lang="ar" style="display:none; direction: rtl;">الموضوع:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div>
+                <label for="message" data-lang="fr">Message:</label>
+                <label for="message" data-lang="en" style="display:none;">Message:</label>
+                <label for="message" data-lang="es" style="display:none;">Mensaje:</label>
+                <label for="message" data-lang="ar" style="display:none; direction: rtl;">الرسالة:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div>
+                <button type="submit" data-lang="fr">Envoyer</button>
+                <button type="submit" data-lang="en" style="display:none;">Submit</button>
+                <button type="submit" data-lang="es" style="display:none;">Enviar</button>
+                <button type="submit" data-lang="ar" style="display:none; direction: rtl;">إرسال</button>
+            </div>
+        </form>
+
+        
+        <div class="address">
+            <h3 data-lang="fr">Siège Social</h3>
+            <h3 data-lang="en" style="display:none;">Head Office</h3>
+            <h3 data-lang="es" style="display:none;">Oficina Central</h3>
+            <h3 data-lang="ar" style="display:none; direction: rtl;">المقر الرئيسي</h3>
+
+            <p>LUSFLEY COMPANY S.A.</p>
+            <p>Montevideo, Uruguay</p>
+            <p>Avda. Dr. Luis Albe 1052, 1402</p>
+        </div>
+        
+        <p data-lang="fr">Suivez-nous sur nos réseaux sociaux :</p>
+        <p data-lang="en" style="display:none;">Follow us on our social networks:</p>
+        <p data-lang="es" style="display:none;">Síguenos en nuestras redes sociales:</p>
+        <p data-lang="ar" style="display:none; direction: rtl;">تابعونا على وسائل التواصل الاجتماعي:</p>
+
+        <ul class="socials">
+            <li><a href="https://www.facebook.com/tboxchef?mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://tbox-chef.com/" target="_blank"><i class="fas fa-globe"></i></a></li>
+        </ul>        
+    </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
