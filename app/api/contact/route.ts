@@ -31,6 +31,17 @@ export async function POST(request: Request) {
             },
         });
 
+        // Verify connection configuration
+        try {
+            await transporter.verify();
+        } catch (verifyError) {
+            console.error('SMTP Verification Error:', verifyError);
+            return NextResponse.json(
+                { error: 'Server configuration error: Unable to connect to email service' },
+                { status: 500 }
+            );
+        }
+
         // Build recipient list
         const recipients = [gmailUser, gmailUser1].filter(Boolean).join(', ');
 
@@ -87,7 +98,10 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ message: 'Email envoyé avec succès' }, { status: 200 });
     } catch (error) {
-        console.error('Error sending email:', error);
-        return NextResponse.json({ error: "Erreur lors de l'envoi de l'email" }, { status: 500 });
+        console.error('Detailed Error sending email:', error);
+        return NextResponse.json(
+            { error: "Erreur lors de l'envoi de l'email", details: error instanceof Error ? error.message : String(error) },
+            { status: 500 }
+        );
     }
 }
