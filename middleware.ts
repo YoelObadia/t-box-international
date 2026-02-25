@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+// @ts-ignore - file exists at project root
 import { i18n } from './i18n-config';
 import { match as matchLocale } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
@@ -27,7 +28,7 @@ export function middleware(request: NextRequest) {
 
     // Check if there is any supported locale in the pathname
     const pathnameIsMissingLocale = i18n.locales.every(
-        (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+        (locale: string) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );
 
     // Redirect if there is no locale
