@@ -1,3 +1,4 @@
+// middleware.ts
 import { NextRequest, NextResponse } from 'next/server';
 
 const SUPPORTED_LOCALES = ['fr', 'en', 'es', 'ar'] as const;
@@ -31,59 +32,63 @@ function getBestLocale(acceptLanguage: string | null): string {
 }
 
 function getLocale(request: NextRequest): string {
-    // 1. Check cookie (user's previous choice)
     const cookieLocale = request.cookies.get(COOKIE_NAME)?.value;
-    if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as typeof SUPPORTED_LOCALES[number])) {
+    if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as any)) {
         return cookieLocale;
     }
-
-    // 2. Detect from Accept-Language header
     return getBestLocale(request.headers.get('accept-language'));
 }
 
 export function middleware(request: NextRequest) {
-    try {
-        const { pathname } = request.nextUrl;
+    const { pathname } = request.nextUrl;
 
-        // Check if the pathname already starts with a supported locale
-        const pathnameHasLocale = SUPPORTED_LOCALES.some(
-            (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-        );
+    // 1. SECURITE : On ignore tout ce qui ressemble à un fichier statique ou interne
+    if (
+        pathname.startsWith('/_next') ||
+        pathname.startsWith('/api') ||
+        pathname.includes('.') || // Ignore favicon.ico, logo.png, etc.
+        pathname === '/robots.txt' ||
+        pathname === '/sitemap.xml'
+    ) {
+        return NextResponse.next();
+    }
 
-        if (pathnameHasLocale) {
-            // Extract locale from path and set cookie
-            const locale = pathname.split('/')[1];
-            const response = NextResponse.next();
-            response.cookies.set(COOKIE_NAME, locale, {
-                path: '/',
-                maxAge: 60 * 60 * 24 * 365,
-                sameSite: 'lax',
-            });
-            return response;
-        }
+    // 2. Vérifier si la locale est déjà dans l'URL
+    const pathnameHasLocale = SUPPORTED_LOCALES.some(
+        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    );
 
-        // Redirect to locale-prefixed URL
-        const locale = getLocale(request);
-        const url = new URL(request.url);
-        url.pathname = `/${locale}${pathname}`;
-
-        console.log(`Middleware: Redirecting ${pathname} to ${url.pathname}`);
-
-        const response = NextResponse.redirect(url);
+    if (pathnameHasLocale) {
+        const locale = pathname.split('/')[1];
+        const response = NextResponse.next();
+        // On rafraîchit le cookie pour qu'il reste valide
         response.cookies.set(COOKIE_NAME, locale, {
             path: '/',
             maxAge: 60 * 60 * 24 * 365,
             sameSite: 'lax',
         });
         return response;
-    } catch (error) {
-        console.error('MIDDLEWARE_ERROR:', error);
-        // Fallback to Next() to avoid blocking the user if middleware fails
-        return NextResponse.next();
     }
+
+    // 3. Redirection si aucune locale n'est présente
+    const locale = getLocale(request);
+    const url = request.nextUrl.clone();
+
+    // Construction propre du chemin pour éviter les doubles slashs //
+    const cleanPathname = pathname === '/' ? '' : pathname;
+    url.pathname = `/${locale}${cleanPathname}`;
+
+    const response = NextResponse.redirect(url);
+    response.cookies.set(COOKIE_NAME, locale, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 365,
+        sameSite: 'lax',
+    });
+
+    return response;
 }
 
 export const config = {
-    // Matcher ignoring `/_next/` and `/api/` and all files with extensions
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)'],
+    // On affine le matcher pour exclure les assets connus
+    matcher: ['/((?!api|_next/static|_next/image|images|favicon.ico|.*\\..*).*)'],
 };
