@@ -42,37 +42,45 @@ function getLocale(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
-    const { pathname } = request.nextUrl;
+    try {
+        const { pathname } = request.nextUrl;
 
-    // Check if the pathname already starts with a supported locale
-    const pathnameHasLocale = SUPPORTED_LOCALES.some(
-        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    );
+        // Check if the pathname already starts with a supported locale
+        const pathnameHasLocale = SUPPORTED_LOCALES.some(
+            (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+        );
 
-    if (pathnameHasLocale) {
-        // Extract locale from path and set cookie
-        const locale = pathname.split('/')[1];
-        const response = NextResponse.next();
+        if (pathnameHasLocale) {
+            // Extract locale from path and set cookie
+            const locale = pathname.split('/')[1];
+            const response = NextResponse.next();
+            response.cookies.set(COOKIE_NAME, locale, {
+                path: '/',
+                maxAge: 60 * 60 * 24 * 365,
+                sameSite: 'lax',
+            });
+            return response;
+        }
+
+        // Redirect to locale-prefixed URL
+        const locale = getLocale(request);
+        const url = new URL(request.url);
+        url.pathname = `/${locale}${pathname}`;
+
+        console.log(`Middleware: Redirecting ${pathname} to ${url.pathname}`);
+
+        const response = NextResponse.redirect(url);
         response.cookies.set(COOKIE_NAME, locale, {
             path: '/',
             maxAge: 60 * 60 * 24 * 365,
             sameSite: 'lax',
         });
         return response;
+    } catch (error) {
+        console.error('MIDDLEWARE_ERROR:', error);
+        // Fallback to Next() to avoid blocking the user if middleware fails
+        return NextResponse.next();
     }
-
-    // Redirect to locale-prefixed URL
-    const locale = getLocale(request);
-    const url = request.nextUrl.clone();
-    url.pathname = `/${locale}${pathname}`;
-
-    const response = NextResponse.redirect(url);
-    response.cookies.set(COOKIE_NAME, locale, {
-        path: '/',
-        maxAge: 60 * 60 * 24 * 365,
-        sameSite: 'lax',
-    });
-    return response;
 }
 
 export const config = {
