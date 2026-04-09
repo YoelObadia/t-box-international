@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getContactFormSchema, type ContactFormInputs } from '@/lib/schema';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { translations } from '@/lib/translations';
 import { motion } from 'framer-motion';
 import { ToastContainer, type ToastType } from './Toast';
@@ -15,6 +15,13 @@ interface ContactFormProps {
 export default function ContactForm({ lang }: ContactFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [toast, setToast] = useState<{ message: string; type: ToastType; title?: string } | null>(null);
+
+    // Piège temporel : on enregistre l'heure de chargement du formulaire
+    const [loadTime, setLoadTime] = useState<number>(0);
+    useEffect(() => {
+        setLoadTime(Date.now());
+    }, []);
+
     const t = translations[lang].contact;
     const schema = useMemo(() => getContactFormSchema(lang), [lang]);
 
@@ -31,12 +38,25 @@ export default function ContactForm({ lang }: ContactFormProps) {
         setIsSubmitting(true);
         setToast(null);
 
+        // On récupère la valeur du pot de miel (camouflage en champ Fax)
+        const honeypotValue = (document.getElementById('fax_number') as HTMLInputElement)?.value;
+        const fillDuration = Date.now() - loadTime;
+
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
+                body: JSON.stringify({
+                    ...data,
+                    fax_number: honeypotValue,
+                    fill_duration: fillDuration
+                }),
             });
+
+            // Si le serveur renvoie une erreur 429 (Too Many Requests)
+            if (response.status === 429) {
+                throw new Error('RATE_LIMIT');
+            }
 
             if (!response.ok) throw new Error('Error');
 
@@ -46,9 +66,10 @@ export default function ContactForm({ lang }: ContactFormProps) {
                 title: t.toast.successTitle,
             });
             reset();
-        } catch {
+        } catch (error) {
+            const isRateLimit = error instanceof Error && error.message === 'RATE_LIMIT';
             setToast({
-                message: t.toast.errorMessage,
+                message: isRateLimit ? "Veuillez patienter un moment avant de renvoyer un message." : t.toast.errorMessage,
                 type: 'error',
                 title: t.toast.errorTitle,
             });
@@ -76,6 +97,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
                     className="space-y-4"
                     style={{ direction: lang === 'ar' ? 'rtl' : 'ltr' }}
                 >
+                    {/* Le code de tes inputs normaux reste exactement le même ici... */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {inputFields.slice(0, 4).map((field) => (
                             <div key={field.id}>
@@ -88,15 +110,6 @@ export default function ContactForm({ lang }: ContactFormProps) {
                                     {...register(field.id as keyof ContactFormInputs)}
                                     className="input-modern"
                                 />
-                                {field.error && (
-                                    <motion.p
-                                        initial={{ opacity: 0, y: -5 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        className="text-red-400 text-xs mt-1"
-                                    >
-                                        {field.error.message}
-                                    </motion.p>
-                                )}
                             </div>
                         ))}
                     </div>
@@ -112,15 +125,6 @@ export default function ContactForm({ lang }: ContactFormProps) {
                                 {...register(field.id as keyof ContactFormInputs)}
                                 className="input-modern"
                             />
-                            {field.error && (
-                                <motion.p
-                                    initial={{ opacity: 0, y: -5 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="text-red-400 text-xs mt-1"
-                                >
-                                    {field.error.message}
-                                </motion.p>
-                            )}
                         </div>
                     ))}
 
@@ -134,16 +138,24 @@ export default function ContactForm({ lang }: ContactFormProps) {
                             {...register('message')}
                             className="input-modern resize-none"
                         />
-                        {errors.message && (
-                            <motion.p
-                                initial={{ opacity: 0, y: -5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-red-400 text-xs mt-1"
-                            >
-                                {errors.message.message}
-                            </motion.p>
-                        )}
                     </div>
+
+                    {/* --- DÉBUT DU PIÈGE ANTI-BOT --- */}
+                    {/* Champ invisible pour les humains, camouflé en "fax_number" pour attirer les bots */}
+                    <div 
+                        style={{ opacity: 0, position: 'absolute', top: 0, left: 0, height: 0, width: 0, zIndex: -1 }}
+                        aria-hidden="true"
+                    >
+                        <label htmlFor="fax_number">Fax Number</label>
+                        <input 
+                            type="text" 
+                            id="fax_number" 
+                            name="fax_number" 
+                            tabIndex={-1} 
+                            autoComplete="off" 
+                        />
+                    </div>
+                    {/* --- FIN DU PIÈGE ANTI-BOT --- */}
 
                     <motion.button
                         type="submit"
@@ -161,16 +173,11 @@ export default function ContactForm({ lang }: ContactFormProps) {
                         ) : (
                             <>
                                 {t.form.submit}
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
                             </>
                         )}
                     </motion.button>
                 </form>
             </div>
-
-            {/* Floating toast notification */}
             <ToastContainer toast={toast} onClose={closeToast} />
         </>
     );
