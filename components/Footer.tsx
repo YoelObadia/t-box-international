@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { translations } from '@/lib/translations';
@@ -43,10 +44,10 @@ export default function Footer({ lang }: FooterProps) {
             style={{ direction: isRtl ? 'rtl' : 'ltr' }}
         >
             {/* Top gradient border */}
-            <div className="h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+            <div className="h-[2px] bg-linear-to-r from-transparent via-blue-500 to-transparent" />
 
             {/* Background */}
-            <div className="absolute inset-0 bg-[var(--bg-secondary)]" />
+            <div className="absolute inset-0 bg-(--bg-secondary)" />
             <div className="absolute inset-0 opacity-[0.02]"
                 style={{
                     backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -60,7 +61,7 @@ export default function Footer({ lang }: FooterProps) {
                         <h2 className="text-3xl font-bold heading-gradient mb-3" style={{ fontFamily: 'var(--font-outfit)' }}>
                             {t.contact.title}
                         </h2>
-                        <p className="text-[var(--text-secondary)] text-lg">{t.contact.desc}</p>
+                        <p className="text-(--text-secondary) text-lg">{t.contact.desc}</p>
                     </div>
                 </AnimatedSection>
 
@@ -85,7 +86,7 @@ export default function Footer({ lang }: FooterProps) {
                                                 key={item.id}
                                                 href={`#${item.id}`}
                                                 onClick={(e) => handleScroll(e, item.id)}
-                                                className="text-[var(--text-secondary)] hover:text-white transition-colors flex items-center gap-2 group"
+                                                className="text-(--text-secondary) hover:text-white transition-colors flex items-center gap-2 group"
                                             >
                                                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                                                 {item.label}
@@ -102,7 +103,7 @@ export default function Footer({ lang }: FooterProps) {
                                     </h3>
                                     <div className="space-y-1.5">
                                         {t.contact.address.lines.map((line, i) => (
-                                            <p key={i} className="text-[var(--text-secondary)]">{line}</p>
+                                            <p key={i} className="text-(--text-secondary)">{line}</p>
                                         ))}
                                     </div>
                                 </div>
@@ -119,7 +120,7 @@ export default function Footer({ lang }: FooterProps) {
                                                 rel="noopener noreferrer"
                                                 whileHover={{ scale: 1.15, y: -3 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                className="w-12 h-12 rounded-xl glass flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:border-blue-500/30 transition-colors"
+                                                className="w-12 h-12 rounded-xl glass flex items-center justify-center text-(--text-secondary) hover:text-white hover:border-blue-500/30 transition-colors"
                                                 aria-label={social.label}
                                             >
                                                 <i className={`${social.icon} text-lg`} />
@@ -136,11 +137,11 @@ export default function Footer({ lang }: FooterProps) {
                 <div className="mt-16 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                         <img src="/images/logo.jpg" alt="T-Box" className="w-8 h-8 rounded-md object-contain" />
-                        <span className="text-sm text-[var(--text-muted)]">
+                        <span className="text-sm text-(--text-muted)">
                             © {new Date().getFullYear()} T-Box International
                         </span>
                     </div>
-                    <p className="text-xs text-[var(--text-muted)]">
+                    <p className="text-xs text-(--text-muted)">
                         LUSFLEY COMPANY S.A. — Montevideo, Uruguay
                     </p>
                 </div>

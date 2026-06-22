@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -53,9 +54,9 @@ export default function Header({ lang }: HeaderProps) {
 
     return (
         <motion.header
-            className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ${scrolled
+            className={`fixed top-0 left-0 right-0 z-999 transition-all duration-500 ${scrolled
                 ? 'py-2 bg-[rgba(10,14,26,0.95)] backdrop-blur-xl shadow-lg shadow-black/20'
-                : 'py-4 bg-gradient-to-b from-black/60 to-transparent'
+                : 'py-4 bg-linear-to-b from-black/60 to-transparent'
                 }`}
         >
             <div className="w-full mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">

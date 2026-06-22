@@ -39,7 +39,7 @@ export default function Toast({ message, type, title, duration = 5000, onClose }
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-6 right-6 z-[9999] max-w-sm w-full pointer-events-auto"
+            className="fixed bottom-6 right-6 z-9999 max-w-sm w-full pointer-events-auto"
         >
             <div
                 className="relative overflow-hidden rounded-xl border shadow-2xl backdrop-blur-xl"
@@ -58,7 +58,7 @@ export default function Toast({ message, type, title, duration = 5000, onClose }
                 <div className="flex items-start gap-3 p-4">
                     {/* Icon */}
                     <div
-                        className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+                        className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
                         style={{
                             background: isSuccess
                                 ? 'rgba(16, 185, 129, 0.15)'
@@ -81,7 +81,7 @@ export default function Toast({ message, type, title, duration = 5000, onClose }
                         <p className={`text-sm font-semibold ${isSuccess ? 'text-green-300' : 'text-red-300'}`}>
                             {title ?? (isSuccess ? '✓ Sent' : '✗ Error')}
                         </p>
-                        <p className="text-xs text-[var(--text-secondary)] mt-0.5 leading-relaxed">
+                        <p className="text-xs text-(--text-secondary) mt-0.5 leading-relaxed">
                             {message}
                         </p>
                     </div>
@@ -89,7 +89,7 @@ export default function Toast({ message, type, title, duration = 5000, onClose }
                     {/* Close button */}
                     <button
                         onClick={onClose}
-                        className="flex-shrink-0 p-1 rounded-md text-[var(--text-muted)] hover:text-white hover:bg-white/5 transition-colors"
+                        className="shrink-0 p-1 rounded-md text-(--text-muted) hover:text-white hover:bg-white/5 transition-colors"
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

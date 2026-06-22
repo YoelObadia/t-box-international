@@ -31,7 +31,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProp
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="md:hidden overflow-hidden bg-[rgba(10,14,26,0.95)] backdrop-blur-xl border-b border-white/5 absolute top-full left-0 right-0 shadow-2xl border-t border-white/10"
+                    className="md:hidden overflow-hidden bg-[rgba(10,14,26,0.95)] backdrop-blur-xl border-b absolute top-full left-0 right-0 shadow-2xl border-t border-white/10"
                 >
                     <div className="px-6 py-6 flex flex-col gap-6 items-center text-center">
                         {navItems.map((item, i) => (

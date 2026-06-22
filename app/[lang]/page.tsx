@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -97,7 +98,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.6 }}
-                        className="text-lg md:text-xl text-[var(--text-secondary)] max-w-[700px] mx-auto mb-10 leading-relaxed"
+                        className="text-lg md:text-xl text-(--text-secondary) max-w-[700px] mx-auto mb-10 leading-relaxed"
                     >
                         {t.hero.desc}
                     </motion.p>
@@ -129,7 +130,7 @@ export default function Home() {
                         transition={{ duration: 0.8, delay: 1 }}
                         className="relative max-w-3xl mx-auto"
                     >
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl" />
+                        <div className="absolute -inset-4 bg-linear-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl" />
                         <video
                             src="/images/demo.mp4"
                             controls
@@ -144,14 +145,14 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <AnimatedSection variant="fade-left" className="flex-1">
                         <h2>{t.about.title}</h2>
-                        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+                        <p className="text-lg text-(--text-secondary) leading-relaxed">
                             {t.about.desc}
                         </p>
                     </AnimatedSection>
 
                     <AnimatedSection variant="fade-right" delay={0.2} className="flex-1">
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-cyan-500/10 rounded-2xl blur-2xl" />
+                            <div className="absolute -inset-4 bg-linear-to-br from-blue-500/20 to-cyan-500/10 rounded-2xl blur-2xl" />
                             <img
                                 src="/images/about-us.jpg"
                                 alt="T-Box"
@@ -166,7 +167,7 @@ export default function Home() {
             <section id="technology">
                 <AnimatedSection>
                     <h2 className="text-center">{t.technology.title}</h2>
-                    <p className="text-lg text-[var(--text-secondary)] text-center max-w-[800px] mx-auto mb-12">
+                    <p className="text-lg text-(--text-secondary) text-center max-w-[800px] mx-auto mb-12">
                         {t.technology.desc}
                     </p>
                 </AnimatedSection>
@@ -181,7 +182,7 @@ export default function Home() {
                                     {idx === 1 && <AnimatedCounter target={5} suffix=" min" prefix="2-" />}
                                     {idx === 2 && <>♻️</>}
                                 </div>
-                                <p className="text-[var(--text-secondary)]">{item}</p>
+                                <p className="text-(--text-secondary)">{item}</p>
                             </GlassCard>
                         </AnimatedSection>
                     ))}
@@ -228,7 +229,7 @@ export default function Home() {
                                         </span>
                                     </div>
                                     <div className="mb-4">{icon}</div>
-                                    <p className="text-[var(--text-secondary)] text-sm">{t.technology.steps[idx]}</p>
+                                    <p className="text-(--text-secondary) text-sm">{t.technology.steps[idx]}</p>
                                 </GlassCard>
                             </AnimatedSection>
                         ))}
@@ -237,7 +238,7 @@ export default function Home() {
 
                 <AnimatedSection delay={0.3} className="mt-12">
                     <div className="relative max-w-2xl mx-auto">
-                        <div className="absolute -inset-3 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 rounded-2xl blur-xl" />
+                        <div className="absolute -inset-3 bg-linear-to-br from-blue-500/15 to-cyan-500/10 rounded-2xl blur-xl" />
                         <img
                             src="/images/technology.jpg"
                             alt="Technology"
@@ -251,7 +252,7 @@ export default function Home() {
             <section id="markets">
                 <AnimatedSection>
                     <h2 className="text-center">{t.markets.title}</h2>
-                    <p className="text-lg text-[var(--text-secondary)] text-center max-w-[800px] mx-auto mb-12">
+                    <p className="text-lg text-(--text-secondary) text-center max-w-[800px] mx-auto mb-12">
                         {t.markets.desc}
                     </p>
                 </AnimatedSection>
@@ -263,7 +264,7 @@ export default function Home() {
                                 <span className="market-icon">{marketIcons[idx]}</span>
                                 <div>
                                     <h3 className="font-semibold text-white mb-1">{market.title}</h3>
-                                    <p className="text-sm text-[var(--text-secondary)]">{market.desc}</p>
+                                    <p className="text-sm text-(--text-secondary)">{market.desc}</p>
                                 </div>
                             </GlassCard>
                         </AnimatedSection>
@@ -272,7 +273,7 @@ export default function Home() {
 
                 <AnimatedSection delay={0.3} className="mt-12">
                     <div className="relative max-w-3xl mx-auto">
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/15 to-cyan-500/10 rounded-2xl blur-xl" />
+                        <div className="absolute -inset-4 bg-linear-to-r from-blue-500/15 to-cyan-500/10 rounded-2xl blur-xl" />
                         <video
                             src="/images/market.mp4"
                             controls
@@ -292,7 +293,7 @@ export default function Home() {
                             alt="Sustainability"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/60" />
+                        <div className="absolute inset-0 bg-linear-to-r from-(--bg-primary)/95 via-(--bg-primary)/80 to-(--bg-primary)/60" />
                     </div>
 
                     <div className="relative z-10 w-full mx-auto px-4 sm:px-8 lg:px-12 py-16 sm:py-20">
@@ -308,7 +309,7 @@ export default function Home() {
                                 </motion.div>
 
                                 <h2>{t.sustainability.title}</h2>
-                                <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+                                <p className="text-lg text-(--text-secondary) leading-relaxed">
                                     {t.sustainability.desc}
                                 </p>
                             </div>
@@ -323,14 +324,14 @@ export default function Home() {
                     <div className="max-w-4xl mx-auto">
                         <GlassCard className="text-center relative overflow-hidden" hover={false}>
                             {/* Subtle gradient accent */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[2px] bg-linear-to-r from-transparent via-blue-500 to-transparent" />
 
                             <div className="pt-4">
                                 <motion.div
                                     className="relative inline-block mb-6"
                                     whileHover={{ scale: 1.05 }}
                                 >
-                                    <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 blur-md" />
+                                    <div className="absolute -inset-2 rounded-full bg-linear-to-br from-blue-500/30 to-cyan-500/30 blur-md" />
                                     <img
                                         src="/images/michel-cohen.jpg"
                                         alt="Michel Cohen"
@@ -342,7 +343,7 @@ export default function Home() {
                                     {t.founders.name}
                                 </h3>
 
-                                <p className="text-[var(--text-secondary)] mb-6 max-w-[500px] mx-auto">
+                                <p className="text-(--text-secondary) mb-6 max-w-[500px] mx-auto">
                                     {t.founders.desc}
                                 </p>
 
@@ -351,12 +352,12 @@ export default function Home() {
                                         <AnimatedSection key={idx} delay={idx * 0.1} variant="fade-up">
                                             <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
                                                 <span
-                                                    className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                                                    className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
                                                     style={{ background: 'var(--accent-gradient)', color: 'white' }}
                                                 >
                                                     {idx + 1}
                                                 </span>
-                                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{item}</p>
+                                                <p className="text-sm text-(--text-secondary) leading-relaxed">{item}</p>
                                             </div>
                                         </AnimatedSection>
                                     ))}

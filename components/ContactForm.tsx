@@ -101,7 +101,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {inputFields.slice(0, 4).map((field) => (
                             <div key={field.id}>
-                                <label htmlFor={field.id} className="block text-sm text-[var(--text-secondary)] mb-1.5">
+                                <label htmlFor={field.id} className="block text-sm text-(--text-secondary) mb-1.5">
                                     {field.label}
                                 </label>
                                 <input
@@ -116,7 +116,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
 
                     {inputFields.slice(4).map((field) => (
                         <div key={field.id}>
-                            <label htmlFor={field.id} className="block text-sm text-[var(--text-secondary)] mb-1.5">
+                            <label htmlFor={field.id} className="block text-sm text-(--text-secondary) mb-1.5">
                                 {field.label}
                             </label>
                             <input
@@ -129,7 +129,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
                     ))}
 
                     <div>
-                        <label htmlFor="message" className="block text-sm text-[var(--text-secondary)] mb-1.5">
+                        <label htmlFor="message" className="block text-sm text-(--text-secondary) mb-1.5">
                             {t.form.message}
                         </label>
                         <textarea
