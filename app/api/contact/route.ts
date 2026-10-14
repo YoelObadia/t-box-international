@@ -60,6 +60,7 @@ export async function POST(request: Request) {
 
         const gmailUser = process.env.GMAIL_USER;
         const gmailUser1 = process.env.GMAIL_USER1;
+        const gmailUser2 = process.env.GMAIL_USER2;
         const gmailPass = process.env.GMAIL_PASS;
 
         if (!gmailUser || !gmailPass) {
@@ -74,7 +75,7 @@ export async function POST(request: Request) {
             },
         });
 
-        const recipients = [gmailUser, gmailUser1].filter(Boolean).join(', ');
+        const recipients = [gmailUser, gmailUser1, gmailUser2].filter(Boolean).join(', ');
 
         await transporter.sendMail({
             from: `"T-Box International" <${gmailUser}>`,
